@@ -1,4 +1,5 @@
 .vagrant/*
 
 apps/*
-!apps/.gitkeep
+!apps/nginx_vhost
+!apps/phpinfo.php
