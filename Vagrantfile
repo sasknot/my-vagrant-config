@@ -7,9 +7,9 @@ Vagrant.configure(2) do |config|
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
 
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  # For mysql
+  # config.vm.network "private_network", ip: "33.33.33.10"
+  # config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   config.vm.synced_folder "./apps", "/var/www", create: true, group: "www-data", owner: "www-data"
 
@@ -19,7 +19,6 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "php5" do |php5|
     php5.vm.box = "ubuntu/trusty64"
-    php5.vm.network "forwarded_port", guest: 80, host: 8080
     php5.vm.network "forwarded_port", guest: 8000, host: 8000
     php5.vm.provision "shell" do |s|
       s.path = "setup-php5.sh"
