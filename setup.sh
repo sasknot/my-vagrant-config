@@ -17,7 +17,7 @@ debconf-set-selections <<< "mysql-server mysql-server/root_password password roo
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password rootpwd"
 
 echo "Installing MySQL"
-apt-get install mysql-server -y > /dev/null
+apt-get install mysql-server-5.6 -y > /dev/null
 
 # echo "Configuring MySQL"
 # mysql -u root -prootpwd
