@@ -1,0 +1,5 @@
+#!/bin/bash
+
+vagrant up php5
+vagrant ssh php5 -c "sudo service nginx restart"
+vagrant ssh php5

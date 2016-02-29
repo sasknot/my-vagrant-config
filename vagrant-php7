@@ -1,0 +1,5 @@
+#!/bin/bash
+
+vagrant up php7
+vagrant ssh php7 -c "sudo service nginx restart"
+vagrant ssh php7
