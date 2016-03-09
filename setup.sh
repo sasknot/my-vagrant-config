@@ -2,6 +2,13 @@
 
 echo "Provisioning virtual machine..."
 
+echo "Installing language pack"
+apt-get install language-pack-en -y > /dev/null
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+locale-gen en_US.UTF-8
+
 echo "Installing Nginx"
 apt-get install nginx -y > /dev/null
 
@@ -17,12 +24,4 @@ debconf-set-selections <<< "mysql-server mysql-server/root_password password roo
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password rootpwd"
 
 echo "Installing MySQL"
-apt-get install mysql-server-5.6 -y > /dev/null
-
-# echo "Configuring MySQL"
-# mysql -u root -prootpwd
-
-# use mysql
-# GRANT ALL ON *.* to root@'33.33.33.10';
-# FLUSH PRIVILEGES;
-# exit
+apt-get install mysql-server-5.6 mysql-client-5.6 -y > /dev/null

@@ -2,7 +2,7 @@
 
 echo "Updating PHP 5 repository"
 apt-get install python-software-properties build-essential -y > /dev/null
-add-apt-repository ppa:ondrej/php5 -y
+add-apt-repository ppa:ondrej/php5 -y > /dev/null
 apt-get update > /dev/null
 
 echo "Installing PHP 5"
