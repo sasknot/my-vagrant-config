@@ -29,7 +29,9 @@ Vagrant.configure(2) do |config|
 
   # php5 machine
   config.vm.define "php5" do |php5|
-    php5.vm.network "forwarded_port", guest: 8000, host: 8000
+    for i in 8000..8999
+      php5.vm.network "forwarded_port", guest: i, host: i
+    end
     php5.vm.provision "shell" do |s|
       s.path = "setup-php5.sh"
     end
@@ -37,7 +39,9 @@ Vagrant.configure(2) do |config|
 
   # php7 machine
   config.vm.define "php7" do |php7|
-    php7.vm.network "forwarded_port", guest: 80, host: 9000
+    for i in 9000..9999
+      php7.vm.network "forwarded_port", guest: i, host: i
+    end
     php7.vm.provision "shell" do |s|
       s.path = "setup-php7.sh"
     end
