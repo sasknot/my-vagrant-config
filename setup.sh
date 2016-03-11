@@ -25,3 +25,8 @@ debconf-set-selections <<< "mysql-server mysql-server/root_password_again passwo
 
 echo "Installing MySQL"
 apt-get install mysql-server-5.6 mysql-client-5.6 -y > /dev/null
+
+echo "Installing Composer"
+wget 'https://getcomposer.org/composer.phar' > dev/null
+chmod 755 composer.phar
+mv composer.phar /usr/local/bin/composer
