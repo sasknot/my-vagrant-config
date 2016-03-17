@@ -22,4 +22,4 @@ server {
   }
 }
 
-include /var/www/**/.nginx.conf;
+include /var/www/**/.nginx-php5.conf;

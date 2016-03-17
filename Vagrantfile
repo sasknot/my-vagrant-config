@@ -8,12 +8,6 @@ Vagrant.configure(2) do |config|
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
 
-  # remote access
-  config.vm.network "private_network", ip: "33.33.33.10"
-  
-  # mysql port
-  config.vm.network "forwarded_port", guest: 3306, host: 3306
-
   # memory increase
   config.vm.provider "virtualbox" do |v|
     v.memory = 1024
@@ -22,16 +16,31 @@ Vagrant.configure(2) do |config|
   # synced folder
   config.vm.synced_folder "./apps", "/var/www", create: true, group: "www-data", owner: "www-data"
 
-  # scripts
+  # fix stdin: is not a tty
+  config.vm.provision "fix-no-tty", type: "shell" do |s|
+    s.privileged = false
+    s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
+  end
+
+  # default provision
   config.vm.provision "shell" do |s|
     s.path = "setup.sh"
   end
 
   # php5 machine
   config.vm.define "php5" do |php5|
+    # remote access
+    config.vm.network "private_network", ip: "33.33.33.50"
+
+    # mysql port
+    config.vm.network "forwarded_port", guest: 3306, host: 3306
+
+    # apps ports
     for i in 8000..8999
       php5.vm.network "forwarded_port", guest: i, host: i
     end
+
+    # machine provision
     php5.vm.provision "shell" do |s|
       s.path = "setup-php5.sh"
     end
@@ -39,9 +48,18 @@ Vagrant.configure(2) do |config|
 
   # php7 machine
   config.vm.define "php7" do |php7|
+    # remote access
+    config.vm.network "private_network", ip: "33.33.33.70"
+
+    # mysql port
+    config.vm.network "forwarded_port", guest: 3306, host: 3307
+
+    # apps ports
     for i in 9000..9999
       php7.vm.network "forwarded_port", guest: i, host: i
     end
+
+    # machine provision
     php7.vm.provision "shell" do |s|
       s.path = "setup-php7.sh"
     end

@@ -1,5 +1,5 @@
 .vagrant/*
 
 apps/*
-!apps/nginx_vhost
+!apps/nginx_vhost*
 !apps/phpinfo.php
