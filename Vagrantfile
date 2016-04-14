@@ -10,7 +10,7 @@ Vagrant.configure(2) do |config|
 
   # memory increase
   config.vm.provider "virtualbox" do |v|
-    v.memory = 1024
+    v.memory = 2048
   end
 
   # synced folder
