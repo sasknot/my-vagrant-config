@@ -36,7 +36,7 @@ Vagrant.configure(2) do |config|
     php5.vm.network "forwarded_port", guest: 3306, host: 3306
 
     # apps ports
-    for i in 8000..8999
+    for i in 8000..8100
       php5.vm.network "forwarded_port", guest: i, host: i
     end
 
@@ -55,7 +55,7 @@ Vagrant.configure(2) do |config|
     php7.vm.network "forwarded_port", guest: 3306, host: 3307
 
     # apps ports
-    for i in 9000..9999
+    for i in 9000..9100
       php7.vm.network "forwarded_port", guest: i, host: i
     end
 
