@@ -52,7 +52,7 @@ Vagrant.configure(2) do |config|
     php7.vm.network "private_network", ip: "33.33.33.70"
 
     # mysql port
-    php7.vm.network "forwarded_port", guest: 3306, host: 3307
+    php7.vm.network "forwarded_port", guest: 3306, host: 3306
 
     # apps ports
     for i in 9000..9100
