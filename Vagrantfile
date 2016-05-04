@@ -27,6 +27,22 @@ Vagrant.configure(2) do |config|
     s.path = "setup.sh"
   end
 
+  # nodejs machine
+  config.vm.define "nodejs" do |nodejs|
+    # remote access
+    nodejs.vm.network "private_network", ip: "33.33.33.10"
+
+    # apps ports
+    for i in 7000..7100
+      nodejs.vm.network "forwarded_port", guest: i, host: i
+    end
+
+    # machine provision
+    nodejs.vm.provision "shell" do |s|
+      s.path = "setup-nodejs.sh"
+    end
+  end
+
   # php5 machine
   config.vm.define "php5" do |php5|
     # remote access
