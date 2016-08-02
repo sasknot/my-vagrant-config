@@ -21,16 +21,16 @@ Just run the machine you want with the `./run-*` script.
 ### PHP 5 machine
 
 - MySQL 5.6
-- Nginx
+- Nginx (latest)
 - PHP 5.6 (with cli, fpm, curl, gd, mcrypt, mysql, intl)
-- Composer
+- Composer (latest)
 - Internal IP: 33.33.33.20
 
 
 ### PHP 7 machine
 
 - MySQL 5.6
-- Nginx
+- Nginx (latest)
 - PHP 7.0 (with cli, fpm, curl, gd, mcrypt, mysql, intl)
-- Composer
+- Composer (latest)
 - Internal IP: 33.33.33.30
