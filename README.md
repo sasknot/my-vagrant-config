@@ -2,6 +2,10 @@
 
 - Vagrant 1.8.1+
 
+## Running
+
+Just run the machine you want with the `./run-*` script.
+
 
 ### Nodejs machine
 
@@ -11,22 +15,22 @@
 - PM2
 - Gulp
 - Bower
-- IP: 33.33.33.10
+- Internal IP: 33.33.33.10
 
 
 ### PHP 5 machine
 
 - MySQL 5.6
 - Nginx
-- Composer
 - PHP 5.6 (with cli, fpm, curl, gd, mcrypt, mysql, intl)
-- IP: 33.33.33.20
+- Composer
+- Internal IP: 33.33.33.20
 
 
 ### PHP 7 machine
 
 - MySQL 5.6
 - Nginx
-- Composer
 - PHP 7.0 (with cli, fpm, curl, gd, mcrypt, mysql, intl)
-- IP: 33.33.33.30
+- Composer
+- Internal IP: 33.33.33.30
