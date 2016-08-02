@@ -15,5 +15,4 @@ Thumbs.db
 # apps files #
 ##############
 apps/*
-!apps/nginx_vhost*
 !apps/phpinfo.php
