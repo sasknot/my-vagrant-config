@@ -30,7 +30,7 @@ Vagrant.configure(2) do |config|
     nodejs.vm.network "private_network", ip: "33.33.33.10"
     nodejs.vm.network "forwarded_port", guest: 3306, host: 3306
 
-    for i in 7000..7100
+    for i in 7000..7050
       nodejs.vm.network "forwarded_port", guest: i, host: i
     end
 
@@ -46,7 +46,7 @@ Vagrant.configure(2) do |config|
     php5.vm.network "private_network", ip: "33.33.33.20"
     php5.vm.network "forwarded_port", guest: 3306, host: 3306
 
-    for i in 8000..8100
+    for i in 8000..8050
       php5.vm.network "forwarded_port", guest: i, host: i
     end
 
@@ -61,7 +61,7 @@ Vagrant.configure(2) do |config|
     php7.vm.network "private_network", ip: "33.33.33.30"
     php7.vm.network "forwarded_port", guest: 3306, host: 3306
 
-    for i in 9000..9100
+    for i in 9000..9050
       php7.vm.network "forwarded_port", guest: i, host: i
     end
 
