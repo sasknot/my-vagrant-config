@@ -1,17 +1,15 @@
 #!/bin/bash
 
-# MySQL 5.6
 echo "Preparing MySQL"
 apt-get install debconf-utils -y >/dev/null
 debconf-set-selections <<< "mysql-server mysql-server/root_password password rootpwd"
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password rootpwd"
 
-echo "Installing MySQL"
+echo "Installing MySQL 5.6"
 apt-get install mysql-server-5.6 mysql-client-5.6 -y >/dev/null
 
 
-# Nginx (latest)
-echo "Installing Nginx"
+echo "Installing Nginx (latest)"
 apt-get install nginx -y >/dev/null
 
 echo "Configuring Nginx"
@@ -47,7 +45,6 @@ rm -rf /etc/nginx/sites-enabled/default
 service nginx restart
 
 
-# PHP 7.0 (with cli, fpm, curl, gd, mcrypt, mysql, intl)
 echo "Updating PHP 7.0 repository"
 apt-get install python-software-properties build-essential -y >/dev/null
 add-apt-repository ppa:ondrej/php -y >/dev/null
@@ -59,12 +56,11 @@ apt-get install php7.0-common php7.0-cli php7.0-fpm -y >/dev/null
 echo "Installing curl"
 apt-get install curl -y >/dev/null
 
-echo "Installing PHP 7.0 extensions"
+echo "Installing PHP 7.0 extensions (cli, fpm, curl, gd, mycrypt, mysql, intl)"
 apt-get install php7.0-curl php7.0-gd php7.0-mcrypt php7.0-mysql php7.0-intl php7.0-mbstring -y >/dev/null
 
 
-# Composer (latest)
-echo "Installing Composer"
+echo "Installing Composer (latest)"
 COMPOSER_EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 COMPOSER_ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
