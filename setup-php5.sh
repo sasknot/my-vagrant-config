@@ -60,7 +60,7 @@ echo "Installing curl"
 apt-get install curl -y >/dev/null
 
 echo "Installing PHP 5.6 extensions"
-apt-get install php5-curl php5-gd php5-mcrypt php5-mysql php5-intl -y >/dev/null
+apt-get install php5-curl php5-gd php5-mcrypt php5-mysql php5-intl php5.6-zip -y >/dev/null
 
 
 # Composer (latest)

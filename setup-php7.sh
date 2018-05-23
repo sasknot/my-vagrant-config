@@ -60,7 +60,7 @@ echo "Installing curl"
 apt-get install curl -y >/dev/null
 
 echo "Installing PHP 7.0 extensions"
-apt-get install php7.0-curl php7.0-gd php7.0-mcrypt php7.0-mysql php7.0-intl php7.0-mbstring -y >/dev/null
+apt-get install php7.0-curl php7.0-gd php7.0-mcrypt php7.0-mysql php7.0-intl php7.0-mbstring php7.0-zip -y >/dev/null
 
 
 # Composer (latest)
