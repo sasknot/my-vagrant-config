@@ -29,6 +29,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "nodejs" do |nodejs|
     nodejs.vm.network "private_network", ip: "33.33.33.10"
     nodejs.vm.network "forwarded_port", guest: 3306, host: 3001
+    nodejs.vm.network "forwarded_port", guest: 80, host: 7070
 
     for i in 7000..7050
       nodejs.vm.network "forwarded_port", guest: i, host: i
@@ -45,6 +46,7 @@ Vagrant.configure(2) do |config|
     # remote access
     php5.vm.network "private_network", ip: "33.33.33.20"
     php5.vm.network "forwarded_port", guest: 3306, host: 3002
+    php5.vm.network "forwarded_port", guest: 80, host: 8080
 
     for i in 8000..8050
       php5.vm.network "forwarded_port", guest: i, host: i
@@ -60,6 +62,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "php7" do |php7|
     php7.vm.network "private_network", ip: "33.33.33.30"
     php7.vm.network "forwarded_port", guest: 3306, host: 3003
+    php7.vm.network "forwarded_port", guest: 80, host: 9090
 
     for i in 9000..9050
       php7.vm.network "forwarded_port", guest: i, host: i
